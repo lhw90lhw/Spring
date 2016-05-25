@@ -21,7 +21,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 				<value>javascript</value>
 			</list>
 		</property>
-		<property name="map">
+		<property name	="map">
 			<map>
 				<entry>
 					<key>
