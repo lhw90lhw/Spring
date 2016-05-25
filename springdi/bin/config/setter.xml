@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="dao" class="di.setter.basic.MemberDAO"/>
+	<!--  setter Injection을 이용해서 컨테이너로부터 주입받기 -->
+	<bean id="insa" class="di.setter.basic.InsaImpl">
+		<!-- property엘리먼트의 name속성은 무엇을 의미? 뭘 적어야 할까?
+						멤버변수명? setter메소드명?-->
+		<property name="dao" ref="dao"></property>
+	</bean>
+	<bean id="logic" class="di.setter01.MyBeanLogic"/>
+	<bean id="mybean" class="di.setter01.MyBeanImpl">
+		<property name="name" value="이현우"></property>
+		<property name="msg" value="하이"></property>
+		<property name="logic" ref="logic"></property>
+	</bean>
+	<bean id="mybean3" class="di.setter01.MyBeanImpl">
+		<constructor-arg value="이현우" index="1"/>
+		<constructor-arg value="하이~~~" index="0"/>
+		<property name="logic" ref="logic"></property>
+	</bean>
+
+	
+	<!-- di.sertter02 -->
+	<bean id="d" class="di.setter02.Dice"/>
+	<bean id="p" class="di.setter02.Player">
+		<property name="d" ref="d"></property>
+	</bean>
+	
+	<!-- di.sertter03 -->
+	<bean id="outputter" class="di.setter03.FileOutputter">
+		<property name="filePath" value="File"></property>
+	</bean>
+	<bean id="msgbean" class="di.setter03.MessageBean">
+		<property name="name" value="이현우"/>
+		<property name="greeting" value="어서와~~"/>
+		<property name="outputter" ref="outputter"></property>
+	</bean>
+
+	<!-- di.constructor04 -->
+	<bean id="Articledao" class="di.setter04.MysqlArticleDAO"/>
+	<!-- <bean id="Articledao" class="di.constructor04.OracleArticleDAO"/> -->
+	<bean id="WriteArticle" 
+		class="di.setter04.WriteArticleMgr" scope="prototype">
+		<property name="articleDAO" ref="Articledao"/>
+	</bean>	
+</beans>
