@@ -10,4 +10,10 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
    	<bean id="ui" class="myemp.MenuUI">
    		<constructor-arg ref="dao"/>
    	</bean>
+   	<bean id="deptdao" class="mydept.MyDeptDAOImpl">
+   		<constructor-arg ref="template"/>
+   	</bean>
+   	<bean id="deptui" class="mydept.MenuUI">
+   		<constructor-arg ref="deptdao"/>
+   	</bean>
 </beans>
