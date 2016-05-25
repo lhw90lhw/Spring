@@ -42,7 +42,8 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<!-- di.constructor04 -->
 	<bean id="Articledao" class="di.setter04.MysqlArticleDAO"/>
 	<!-- <bean id="Articledao" class="di.constructor04.OracleArticleDAO"/> -->
-	<bean id="WriteArticle" class="di.setter04.WriteArticleMgr">
+	<bean id="WriteArticle" 
+		class="di.setter04.WriteArticleMgr" scope="prototype">
 		<property name="articleDAO" ref="Articledao"/>
 	</bean>	
 </beans>

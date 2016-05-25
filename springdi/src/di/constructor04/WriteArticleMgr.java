@@ -1,7 +1,7 @@
 package di.constructor04;
 
 public class WriteArticleMgr implements IWriteArticleMgr {
-	IArticleDAO articleDAO;	
+	private IArticleDAO articleDAO;	
 	
 	public WriteArticleMgr(IArticleDAO articleDAO) {
 		super();

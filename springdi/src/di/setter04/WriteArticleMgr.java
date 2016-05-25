@@ -1,10 +1,10 @@
 package di.setter04;
 
 public class WriteArticleMgr implements IWriteArticleMgr {
-	IArticleDAO articleDAO;			
+	private IArticleDAO articleDAO;			
 	
 	public WriteArticleMgr() {
-		
+		System.out.println("WriteArticleMgr의 생성ㅈㅏ 호출 완료");
 	}
 	
 	public WriteArticleMgr(IArticleDAO articleDAO) {
