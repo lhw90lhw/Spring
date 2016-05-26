@@ -56,11 +56,11 @@ public class MyDeptDAOImpl implements MyDeptDAO {
 			template.query(sql, new MyDeptRowMapper());
 	}
 	@Override
-	public List<MyDeptDTO> findByDeptno(String deptno) {
+	public MyDeptDTO findByDeptno(String deptno) {
 		String sql = "select * from mydept where deptno = ?";
-		List<MyDeptDTO> deptlist = template.query(sql, new Object[]{deptno}, 
+		MyDeptDTO dept = template.queryForObject(sql, new Object[]{deptno}, 
 													new MyDeptRowMapper());
-		return deptlist;
+		return dept;
 	}
 
 	@Override

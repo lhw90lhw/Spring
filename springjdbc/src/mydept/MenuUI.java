@@ -74,14 +74,11 @@ public class MenuUI implements AbstractUI {
 		System.out.println("********검색********");
 		System.out.print("검색할 부서코드를 입력하세요:");
 		String deptno = key.next();
-		List<MyDeptDTO> deptlist = dao.findByDeptno(deptno);
-		for (int i = 0; i < deptlist.size(); i++) {
-			MyDeptDTO dept = deptlist.get(i);
+		MyDeptDTO dept = dao.findByDeptno(deptno);
 			System.out.print(dept.getDeptno()+"\t");
 			System.out.print(dept.getDeptname()+"\t");
 			System.out.print(dept.getLoc()+"\t");
-			System.out.print(dept.getTellnum()+"\t");
-		}
+			System.out.println(dept.getTellnum()+"\t");
 	}
 
 	@Override
