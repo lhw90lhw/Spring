@@ -1,4 +1,4 @@
-package myemp;
+package mydept;
 
 
 public class MyEmpDTO{

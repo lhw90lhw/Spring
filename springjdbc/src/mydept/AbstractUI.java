@@ -14,7 +14,9 @@ public interface AbstractUI {
 	//전체목록보기와 관련된 메소드(dao의 전체목록보기 메소드를 호출하는 메소드)
 	void showAllMenu();
 	//검색과 관련된 메소드(dao의 검색기능 메소드를 호출하는 메소드)
-	void findByLocMenu();
+	void findByDeptnoMenu();
+	//부서명으로 사원조회
+	void SelectByDeptnameMenu();
 	
 	
 }

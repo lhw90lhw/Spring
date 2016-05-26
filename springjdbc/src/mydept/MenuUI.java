@@ -22,9 +22,10 @@ public class MenuUI implements AbstractUI {
 		System.out.println("2. 부서정보수정");
 		System.out.println("3. 부서삭제");
 		System.out.println("4. 부서목록보기");
-		System.out.println("5. 부서명으로 회원검색하기");
-		System.out.println("6. 부서개수조회");
-		System.out.println("7. 종료");
+		System.out.println("5. 부서정보조회");
+		System.out.println("6. 부서별사원조회");
+		System.out.println("7. 부서개수조회");
+		System.out.println("8. 종료");
 		System.out.print("원하는 작업을 선택하세요:");
 		int menu=key.nextInt();
 		menuSelect(menu);
@@ -45,15 +46,20 @@ public class MenuUI implements AbstractUI {
 				showAllMenu();
 				break;
 			case 5:
-				findByLocMenu();
+				findByDeptnoMenu();
 				break;
 			case 6:
-				countMenu();
+				SelectByDeptnameMenu();
 				break;
 			case 7:
+				countMenu();
+				break;
+			case 8:
 				System.exit(0);
 		}
 	}
+	
+
 	@Override
 	public void deleteMenu() {
 		System.out.println("******삭제*******");
@@ -64,11 +70,11 @@ public class MenuUI implements AbstractUI {
 	}
 
 	@Override
-	public void findByLocMenu() {
+	public void findByDeptnoMenu() {
 		System.out.println("********검색********");
-		System.out.print("검색할 주소를 입력하세요:");
-		String loc = key.next();
-		List<MyDeptDTO> deptlist = dao.findByLoc(loc);
+		System.out.print("검색할 부서코드를 입력하세요:");
+		String deptno = key.next();
+		List<MyDeptDTO> deptlist = dao.findByDeptno(deptno);
 		for (int i = 0; i < deptlist.size(); i++) {
 			MyDeptDTO dept = deptlist.get(i);
 			System.out.print(dept.getDeptno()+"\t");
@@ -78,6 +84,23 @@ public class MenuUI implements AbstractUI {
 		}
 	}
 
+	@Override
+	public void SelectByDeptnameMenu() {
+		System.out.println("********검색********");
+		System.out.print("검색할 부서명을 입력하세요:");
+		String deptname = key.next();
+		List<MyEmpDTO> emplist = dao.findByDeptname(deptname);
+		for (int i = 0; i < emplist.size(); i++) {
+			MyEmpDTO user = emplist.get(i);
+			System.out.print(user.getId()+"\t");
+			System.out.print(user.getPass()+"\t");
+			System.out.print(user.getName()+"\t");
+			System.out.print(user.getAddr()+"\t");
+			System.out.print(user.getGrade()+"\t");
+			System.out.println(user.getDeptno()+"\t");
+		}
+	}	
+	
 	@Override
 	public void insertMenu() {
 		System.out.println("********부서등록********");
@@ -105,7 +128,7 @@ public class MenuUI implements AbstractUI {
 			System.out.print(dept.getDeptno()+"\t");
 			System.out.print(dept.getDeptname()+"\t");
 			System.out.print(dept.getLoc()+"\t");
-			System.out.print(dept.getTellnum()+"\t");
+			System.out.println(dept.getTellnum()+"\t");
 		}
 
 	}
@@ -130,6 +153,8 @@ public class MenuUI implements AbstractUI {
 		System.out.println("전체 부서개수: "+dao.count());
 		
 	}
+
+
 
 }
 
