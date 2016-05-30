@@ -1,28 +1,27 @@
 package emp.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.AbstractController;
 
+import emp.dto.MyEmpDTO;
 import emp.service.MyEmpService;
-import emp.service.MyEmpServiceImpl;
 
-public class ListController extends AbstractController {
+@Controller
+public class ListController{
+	@Autowired
 	MyEmpService service;
-	
-	public ListController(MyEmpService service) {
-		super();
-		this.service = service;
-	}
 
-
-	@Override
-	protected ModelAndView handleRequestInternal(HttpServletRequest arg0,
-			HttpServletResponse arg1) throws Exception {
+	@RequestMapping("/list.do")
+	protected ModelAndView handleRequestInternal()throws Exception {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("userlist", service.getMemberList());
+		List<MyEmpDTO> userlist = service.getMemberList();
+		System.out.println("서비스 후 컨트롤러");
+		System.out.println(userlist);
+		mav.addObject("userlist", userlist);
 		mav.setViewName("emp/list");
 		return mav;
 	}

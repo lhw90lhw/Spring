@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% ArrayList<MyEmpDTO> userlist  =
-			(ArrayList<MyEmpDTO>)request.getAttribute("userlist"); 
+<% List<MyEmpDTO> userlist  =
+			(List<MyEmpDTO>)request.getAttribute("userlist"); 
 	   int size = userlist.size();	%>
 	<h1>회원목록(MVC)</h1>
 	
