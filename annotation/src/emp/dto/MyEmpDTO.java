@@ -23,6 +23,17 @@ public class MyEmpDTO{
 		this.sal = 1000;
 		this.deptno="002";
 	}
+	public MyEmpDTO(String id, String pass, String addr, String grade,
+			String name, String deptno) {
+		super();
+		this.id = id;
+		this.pass = pass;
+		this.addr = addr;
+		this.grade = grade;
+		this.name = name;
+		this.sal = 1000;
+		this.deptno= deptno;
+	}
 	public MyEmpDTO(String id, String pass, String addr, int sal,
 			String grade, String deptno, String name) {
 		super();

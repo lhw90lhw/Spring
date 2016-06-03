@@ -21,6 +21,8 @@ public interface MyEmpDAO {
 	List<MyEmpDTO> getMemberList();
 	//주소로 검색
 	List<MyEmpDTO> findByAddr(String addr);
+	//회원정보검색
+	MyEmpDTO read(String id);
 	
 }
 

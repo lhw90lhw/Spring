@@ -1,11 +1,13 @@
+<%@page import="emp.dto.MyEmpDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=euc-kr">
 <title>회원정보수정</title>
-
-
+<% 	MyEmpDTO userInfo  =
+			(MyEmpDTO)request.getAttribute("userInfo"); %>
 </head>
 
 <body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
@@ -27,7 +29,8 @@
             <p><code><b>아이디</b></code></p>
         </td>
         <td width="359">
-            <p><code></code></p>
+            <p><code><input type="text" name="id" 
+            value="<%=userInfo.getId() %>" size="5" readonly></code></p>
         </td>
     </tr>
    <tr>
@@ -36,7 +39,7 @@
         </td>
         <td width="359">
             <p><code><input type="text" name="pass" 
-            value="" size="30"></code></p>
+            value="<%= userInfo.getPass()%>" size="5"></code></p>
         </td>
     </tr>
     <tr>
@@ -44,7 +47,8 @@
             <p><code><b>성명</b></code></p>
         </td>
         <td width="359">
-            <p><code></code></p>
+            <p><code><input type="text" name="name" 
+            value="<%=userInfo.getName() %>" size="5" readonly></code></p>
         </td>
     </tr>
     <tr>
@@ -53,7 +57,7 @@
         </td>
         <td width="359">
             <p><code><input type="text" name="addr"
-            value="" size="51"></code></p>
+            value="<%= userInfo.getAddr()%>" size="5"></code></p>
         </td>
     </tr>
  
@@ -62,8 +66,8 @@
             <p><code><b>등급</b></code></p>
         </td>
         <td width="359">
-            <p><textarea name="grade" rows="10" 
-            cols="50"></textarea></p>
+            <p><input type="text" name="grade"  
+            value="<%= userInfo.getGrade()%>" size="5"></input></p>
         </td>
     </tr>
    

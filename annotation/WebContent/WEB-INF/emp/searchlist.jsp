@@ -8,8 +8,8 @@
 </head>
 <body>
 
-	<% ArrayList<MyEmpDTO> userlist  =
-			(ArrayList<MyEmpDTO>)request.getAttribute("userlist"); 
+	<% List<MyEmpDTO> userlist  =
+			(List<MyEmpDTO>)request.getAttribute("userlist"); 
 	   int size = userlist.size();	%>
 	<jsp:include page="search.jsp"/>
 	
