@@ -8,11 +8,11 @@
 <title>Insert title here</title>
 <style type="text/css">
 	#left{
-		width : 25%;
+		width : 30%;
 		float : left;
 	}
 	#content{
-		width : 75%;
+		width : 70%;
 		float : right;
 	}
 	#footer{

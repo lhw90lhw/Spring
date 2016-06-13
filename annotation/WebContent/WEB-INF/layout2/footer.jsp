@@ -14,8 +14,7 @@
 <body>
 	<div class="main">
 		<h1>Footer</h1>
-		<hr />
-		<img alt="" src="/annotation/images/12345.jpg" width="600" height="200">-->
+		<img alt="" src="/annotation/images/aa1111.jpg" width="1000" height="200">-->
 
 	</div>
 </body>

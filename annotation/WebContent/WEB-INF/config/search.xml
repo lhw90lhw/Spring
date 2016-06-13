@@ -24,4 +24,8 @@
 		<put-attribute name="content"
 			value="/WEB-INF/emp/search.jsp"/>
 	</definition>
+	<definition name="search" extends="subTemplate">
+		<put-attribute name="content"
+			value="/WEB-INF/emp/searchlist.jsp"/>
+	</definition>
 </tiles-definitions>
