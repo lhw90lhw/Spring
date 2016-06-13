@@ -8,6 +8,6 @@ public class indexController{
 	@RequestMapping("/index.do")
 	public String main(){
 		System.out.println("어노테이션");
-		return "emp/index";
+		return "index";
 	}
 }
